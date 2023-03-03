@@ -16,4 +16,5 @@ class persona {
   }
 
   void mostrar();
+  void agregar();
 };

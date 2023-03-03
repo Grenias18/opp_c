@@ -34,6 +34,6 @@ int main() {
   cin>> cui;
   obj.setCui(cui);
   obj.mostrar();
- 
+  obj.agregar();
 }
 

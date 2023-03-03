@@ -31,4 +31,7 @@ class Propietario: persona {
       cout << "__________________________________________" << endl;
       cout << nit << ", " << cui << ", " << nombres<< ", " <<apellidos<< ", " <<direccion<< ", " <<fena<< ", " <<telefono<<endl;
     }
+  void agregar(){
+  	cout << "Datos agregados correctamente"<< endl;
+  }
 };
