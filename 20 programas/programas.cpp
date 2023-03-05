@@ -202,7 +202,6 @@ int main() {
   	cout << "Ingrese un numero: ";
   	cin>> num;
   	cout << "\n\n";
-  	mal = num % 10; num /= 10;
   	uni = num % 10; num /= 10;
     dec = num % 10; num /= 10;
     cen = num % 10; num /= 10;
@@ -237,7 +236,7 @@ int main() {
         case 6: cout<<"sesenta y "; break;
         case 7: cout<<"setenta y "; break;
         case 8: cout<<"ochenta y "; break;
-        case 9: cout<<"noventa y"; break; 
+        case 9: cout<<"noventa y "; break; 
     }
     
     switch (uni)
@@ -256,73 +255,50 @@ int main() {
   }
   
   if (i==7){
-  	cout << "\n\nUsted selecciono el progrma 7:\n\n";
-  	
-  	cout << "Ingrese un numero: ";
-  	cin>> num;
-  	cout << "\n\n";
-  	uni = num % 10; num /= 10;
-    dec = num % 10; num /= 10;
-    cen = num % 10; num /= 10;
-    mil = num % 10; num /= 10;
-    switch (mil)
+
     {
-    	case 1: cout<<"Mil "; break;
-    	case 2: cout<<"dos mil "; break;
-    	case 3: cout<<"Tres mil "; break;
-	}
-	
-	switch (cen)
-	{
-		case 1: cout<<"ciento "; break;
-        case 2: cout<<"docientos "; break;
-        case 3: cout<<"trecientos "; break;
-        case 4: cout<<"cuatrocientos "; break;
-        case 5: cout<<"quinientos "; break;
-        case 6: cout<<"seiscientos "; break;
-        case 7: cout<<"setecientos "; break;
-        case 8: cout<<"ochocientos "; break;
-        case 9: cout<<"novecientos "; break;
-	}
-	
-	switch (dec)
-	{
-		case 1: cout<<"diez y "; break;
-		case 2: cout<<"veinte y "; break;
-        case 3: cout<<"treinta y "; break;
-        case 4: cout<<"cuarenta y "; break;
-        case 5: cout<<"cincuenta y "; break;
-        case 6: cout<<"sesenta y "; break;
-        case 7: cout<<"setenta y "; break;
-        case 8: cout<<"ochenta y "; break;
-        case 9: cout<<"noventa y"; break; 
-    }
-    
-    switch (uni)
-    {
-    	case 1: cout<<"uno "; break;
-    	case 2: cout<<"dos "; break;
-    	case 3: cout<<"tres "; break;
-    	case 4: cout<<"cuatro "; break;
-    	case 5: cout<<"cinco "; break;
-    	case 6: cout<<"seis "; break;
-    	case 7: cout<<"siete "; break;
-    	case 8: cout<<"ocho "; break;
-    	case 9: cout<<"nueve "; break;
-	}
-	
-	    switch (mal)
-    {
-    	case 1: cout<<"punto uno"; break;
-    	case 2: cout<<"punto dos"; break;
-    	case 3: cout<<"punto tres"; break;
-    	case 4: cout<<"punto cuatro"; break;
-    	case 5: cout<<"punto cinco"; break;
-    	case 6: cout<<"punto seis"; break;
-    	case 7: cout<<"punto siete"; break;
-    	case 8: cout<<"punto ocho"; break;
-    	case 9: cout<<"punto nueve"; break;
-	}
+     double valor;
+     int miles,cientos,unidades,decimales;
+     char numeros[100][20] = 
+     {
+     {""},{"un"},{"dos"},{"tres"},{"cuatro"},{"cinco"},{"seis"},{"siete"},{"ocho"},{"nueve"},
+     {"diez"},{"once"},{"doce"},{"trece"},{"catorce"},{"quince"},{"dieciseis"},{"dieceisiete"},{"dieciocho"},{"diecinueve"},
+     {"veinte"},{"veintun"},{"veintidos"},{"veintitres"},{"veinticuatro"},{"veinticinco"},{"veintiseis"},{"veintisiete"},{"veintiocho"},{"veintinueve"},
+     {"treinta"},{"treinta y uno"},{"treinta y dos"},{"treinta y tres"},{"treinta y cuatro"},{"treinta y cinco"},{"treinta y seis"},{"treinta y siete"},{"treinta y ocho"},{"treinta y nueve"},
+     {"cuarenta"},{"cuarenta y uno"},{"cuarenta y dos"},{"cuarenta y tres"},{"cuarenta y cuatro"},{"cuarenta y cinco"},{"cuarenta y seis"},{"cuarenta y siete"},{"cuarenta y ocho"},{"cuarenta y nueve"},
+     {"cincuenta"},{"cincuenta y uno"},{"cincuenta y dos"},{"cincuenta y tres"},{"cincuenta y cuatro"},{"cincuenta y cinco"},{"cincuenta y seis"},{"cincuenta y siete"},{"cincuenta y ocho"},{"cincuenta y nueve"},
+     {"sesenta"},{"sesenta y uno"},{"sesenta y dos"},{"sesenta y tres"},{"sesenta y cuatro"},{"sesenta y cinco"},{"sesenta y seis"},{"sesenta y siete"},{"sesenta y ocho"},{"sesenta y nueve"},
+     {"setenta"},{"setenta y uno"},{"setenta y dos"},{"setenta y tres"},{"setenta y cuatro"},{"setenta y cinco"},{"setenta y seis"},{"setenta y siete"},{"setenta y ocho"},{"setenta y nueve"},
+     {"ochenta"},{"ochenta y uno"},{"ochenta y dos"},{"ochenta y tres"},{"ochenta y cuatro"},{"ochenta y cinco"},{"ochenta y seis"},{"ochenta y siete"},{"ochenta y ocho"},{"ochenta y nueve"},
+     {"noventa"},{"noventa y uno"},{"noventa y dos"},{"noventa y tres"},{"noventa y cuatro"},{"noventa y cinco"},{"noventa y seis"},{"noventa y siete"},{"noventa y ocho"},{"noventa y nueve"},
+      };
+     char centenas[10][20] = 
+     {
+     {""},{"ciento"},{"doscientos"},{"trescientos"},{"cuatrocientos"},{"quinientos"},{"seiscientos"},{"sietecientos"},{"ochocientos"},{"novecientos"},
+     };
+     std::cout << "Ingrese su numero: ";
+     std::cin >> valor;
+     miles = ((int)valor)/1000;
+     cientos = (((int)valor)%1000)/100;
+     unidades = ((int)valor)%100;
+     decimales = ((int) (valor*100.0))%100 ;
+     if (miles)
+     std::cout << numeros[miles] << " mil ";
+     if (cientos)
+     std::cout << centenas[cientos] << " ";
+     if (unidades) 
+     std::cout << numeros[unidades];
+     if (decimales)
+      {
+     if(miles || cientos || unidades)
+     {
+     std::cout << " punto ";
+     }
+     std::cout << numeros[decimales];
+     }
+     std::cout << std::endl;
+
+	 } 
   }
   
   if (i==8){
@@ -392,12 +368,16 @@ int main() {
   }
   
   if (i==10){
-  	cout << "\n\nUsted selecciono el progrma 10:\n\n";
-  	cout << "Ingrese los numeros a multiplicar: ";
+  	cout << "\n\nUsted selecciono el progrma 5:\n\n";
+  	cout << "Ingrese 2 numeros: ";
   	cin>> a;
-  	cin>> b;
-  	mu = a*b;
-  	cout <<"\n  " << a << "\nx " << b<< "\n_______\n  "<<mu;
+	cin>> num;
+	b = num;
+  	cout << "\n\n";
+  	uni = num % 10; num /= 10;
+    dec = num % 10; num /= 10;
+    cout <<"   "<<a<<"\nx  "<<b<<"\n-----------\n   ";
+    cout << uni*a<<"\n "<<dec*a<<"\n-------------\n "<<a*b;
   }
   
   if (i==11){
@@ -433,12 +413,22 @@ int main() {
   
   if (i==13){
   	cout << "\n\nUsted selecciono el progrma 13:\n\n";
-  	
+  	cout << "Que figura desea ver?\n1.Cuadrado\n2.Triangulo\n3.Rectangulo\n4.Circulo\n\n";
+  	cin>> o;
+  	switch (o){
+  	case 1: cout << "..........\n.        .\n.        .\n.        .\n.        .\n.........."; break;
+  	case 2: cout << "         .\n       .   .\n     .       .\n    . . . . . ."; break;
+  	case 3: cout << "..........\n.        .\n.        .\n.        .\n.        .\n.        .\n.        .\n.        .\n.        .\n.        .\n.........."; break;
+  	case 4: cout << "    ......\n  ..      ..\n .          .\n .          .\n  ..      ..\n    ......"; break;
+	}
+  		
   }
   
   if (i==14){
   	cout << "\n\nUsted selecciono el progrma 14:\n\n";
-  	
+  	for (int o=1;o<100000;o++){
+  		cout<<".        ";
+  	}
   }
   
   if (i==15){
@@ -447,30 +437,33 @@ int main() {
   	cout << "Ingrese su tarjeta de credito por favor...\n\n";
   	cout << "Ingrese la clave de la tarjeta...\n\n";
   	cin >> clave;
+  	b = 1500;
   	if (clave == 5805){
-  		cout<< "\n\nBienvenido...\n\nCuanto dinero desea retirar?\n\n1.Q.50\n2.Q.100\n3.Q500\n4.Q1,000\n5.Q2,000\n6.Personalizado\n";
+  		cout << "BIENVENIDO A G&L\n\n\n1.Consultar saldo       2.Retirar fondos\n\n3.Salir\n\n";
+  		cin >> o;
+  		if (o == 1){
+  			cout << "Su saldo actual es de Q." << a;
+		  }
+  		if (o == 2){
+  		cout<< "\n\nBienvenido...\n\nCuanto dinero desea retirar?\n\n1.Q.50\n2.Q.100\n3.Q500\n4.Q1,000\n5.Q2,000\n";
   		cin>> a;
   		if (a == 1){
-  			cout << "\nSe han retirado Q.50\n\nTome su dinero abajo de la maquina";
+  			cout << "\nSe han retirado Q.50\n\nTome su dinero abajo de la maquina\n\nSu saldo actual es: Q"<<b-50;
 		  }
 		if (a == 2){
-  			cout << "\nSe han retirado Q.100\n\nTome su dinero abajo de la maquina";
+  			cout << "\nSe han retirado Q.100\n\nTome su dinero abajo de la maquina\n\nSu saldo actual es: Q"<<b-100;
 		  }
 		if (a == 3){
-  			cout << "\nSe han retirado Q.500\n\nTome su dinero abajo de la maquina";
+  			cout << "\nSe han retirado Q.500\n\nTome su dinero abajo de la maquina\n\nSu saldo actual es: Q"<<b-500;
 		  }
 		if (a == 4){
-  			cout << "\nSe han retirado Q.1,000\n\nTome su dinero abajo de la maquina";
+  			cout << "\nSe han retirado Q.1,000\n\nTome su dinero abajo de la maquina\n\nSu saldo actual es: Q"<<b-1000;
 		  }
 		if (a == 5){
-  			cout << "\nSe han retirado Q.2,000\n\nTome su dinero abajo de la maquina";
+  			cout << "\nSaldo insuficiente...";
 		  }
-		if (a == 6){
-  			cout << "Ingrese la cantidad a retirar: Q.";
-  			cin>> b;
-  			cout << "\n\nSe han retirado Q."<<b<<"\n\nTome su dinero abajo de la maquina";
-		  }
-		  
+	    }
+		 
 	  }else
 	  cout <<"\n\nClave equivocada, intentelo de nuevo...";
 
