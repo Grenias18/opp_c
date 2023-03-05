@@ -587,6 +587,12 @@ int main() {
   	exit;
   	
   }
+  if (i>=22){
+  	
+  	cout << "\n\nOpcion no valida...";
+  	exit;
+  	
+  }
   
 }
 
