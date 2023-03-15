@@ -427,7 +427,7 @@ int main() {
   if (i==14){
   	cout << "\n\nUsted selecciono el progrma 14:\n\n";
   	for (int o=1;o<100000;o++){
-  		cout<<".        ";
+  		cout<<".                                         ";
   	}
   }
   
